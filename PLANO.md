@@ -41,8 +41,9 @@ isso é informação, não fracasso.
 **As duas fontes de verdade.** Quando não souber, consulta **estas** — não IA, não Google,
 não Stack Overflow:
 
-    Ruby   → ruby-doc.org
-    Rails  → guides.rubyonrails.org (conceito) + api.rubyonrails.org (método)
+    Ruby   → https://www.ruby-lang.org/en/documentation/   (oficial; a Core API fica um clique dentro)
+    Rails  → https://guides.rubyonrails.org/               (conceito, o porquê)
+    Rails  → https://api.rubyonrails.org/                  (método, assinatura, retorno)
 
 Cuidado com a versão: o Google costuma cair em Guides antigos. O projeto está em Rails 8.1.
 
