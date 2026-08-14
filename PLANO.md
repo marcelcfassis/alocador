@@ -68,6 +68,18 @@ problema que você não sabe resolver.
 5. **Isolar antes de escrever.** Dúvida pontual se testa sozinha no `irb`. Descobrir dentro
    de um método que já tem outros dois problemas é debugar duas coisas ao mesmo tempo.
 
+## Repetição da mesma forma, não variedade (14/08/2026)
+
+Escrever do zero é habilidade diferente de modificar código existente. No trabalho sempre há
+uma forma pra imitar; na folha em branco não há. É a folha em branco que falta treinar.
+
+Por isso as unidades de um mesmo nível são **deliberadamente parecidas** — mesma estrutura,
+mesmo laço, domínios diferentes. A forma tem que virar automática antes de mudar de forma.
+Variedade cedo demais parece progresso e não fixa nada.
+
+E o método é este: quebrar a cabeça primeiro, resposta só se ele pedir, e a unidade fica
+marcada como *vista* quando isso acontece.
+
 ## O laço de cada unidade (1 sessão, 1–2h)
 
 1. **O problema**, dito como comportamento — nunca como tarefa.
