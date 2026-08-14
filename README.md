@@ -20,8 +20,7 @@ O objetivo não é terminar o produto. É **dominar Rails**.
     bundle install
     bundle exec rspec
 
-A suíte está **vermelha de propósito**: `spec/models/period_spec.rb` descreve uma classe que
-ainda não foi escrita. É a unidade da vez.
+A suíte está verde (14 exemplos). O que fazer a seguir está no [TIPS.md](TIPS.md).
 
 Banco ainda não é necessário — o primeiro objeto é Ruby puro, e o spec nem carrega o Rails.
 
