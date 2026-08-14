@@ -13,6 +13,7 @@ O objetivo não é terminar o produto. É **dominar Rails**.
 | [PROGRESSO.md](PROGRESSO.md) | o checklist — marca só o que escreveu sozinho |
 | [DIARIO.md](DIARIO.md) | uma entrada por dia: fiz / travei / ficou devendo |
 | [NVIM.md](NVIM.md) | 3 atalhos por semana, sem truque |
+| [TIPS.md](TIPS.md) | o que fazer na próxima sessão, e como se destravar |
 
 ## Rodar
 
