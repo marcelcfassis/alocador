@@ -6,7 +6,7 @@ diferentes, e só a primeira conta.
 Um conceito volta pra `[ ]` sem culpa se, semanas depois, você não conseguir usar sem
 consultar. Isso não é retrocesso — é o checklist funcionando.
 
-**Onde estou:** nível 1, unidade 1 (objeto de valor: período)
+**Onde estou:** nível 1, unidade 2 (a definir). A unidade 1 fechou verde em 14/08.
 
 ---
 
@@ -19,7 +19,7 @@ consultar. Isso não é retrocesso — é o checklist funcionando.
 
 ## Nível 1 — Orientação a objetos na prática
 
-- [ ] escrever uma classe Ruby pura: estado no `initialize`, comportamento em métodos
+- [x] escrever uma classe Ruby pura: estado no `initialize`, comportamento em métodos
 - [ ] decidir o que é público e o que é privado — e defender a escolha
 - [ ] módulo como **namespace**
 - [ ] módulo como **mixin** (`include`) e a diferença pra `extend`
@@ -29,7 +29,9 @@ consultar. Isso não é retrocesso — é o checklist funcionando.
 - [ ] **PROVA:** escrever uma classe nova do zero, com testes, sem perguntar e sem consultar
 
 **Unidades:**
-- [ ] 1 — objeto de valor: período com início, fim e as três perguntas
+- [x] 1 — objeto de valor: período com início, fim e as três perguntas (14/08, 14 exemplos verdes)
+      ⚠️ `covers?` foi visto pronto, não resolvido — refazer do zero antes da unidade 2
+      ⚠️ dois bugs achados na suíte verde: `days` e `overlaps?` estouram com fim nulo
 
 ## Nível 2 — SOLID, o básico
 

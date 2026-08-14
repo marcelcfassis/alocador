@@ -32,3 +32,12 @@ sem olhar, antes de seguir pro `overlaps?`.
 Percepção do dia: trabalho com Sidekiq, Service e Query Object, mas não escrevo uma classe
 simples. Reconhecer padrão e ter fluência de linguagem são coisas diferentes — e é a segunda
 que falta.
+
+**Fechou verde: 14 exemplos, 0 falhas.** Escritos sozinho: `initialize`, `days`, e o
+`overlaps?` inteiro. Mais erros que ensinaram: `attr_reader :x` lê `@x` e o nome tem que
+bater letra por letra; duas linhas soltas não se combinam, só a última vira o retorno; e
+`||` onde era `&&` faz quase tudo virar `true`.
+
+Achei dois bugs numa suíte verde: `days` e `overlaps?` estouram quando o fim é nulo (o
+segundo só quando é o **outro** período que não tem fim). Lição: verde não prova que o
+código está certo, prova que o que foi testado funciona.
