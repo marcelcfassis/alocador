@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "date"
 require_relative "../../app/models/period"
 
 RSpec.describe Period do

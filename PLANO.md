@@ -52,6 +52,22 @@ nível ainda não fechou.
 
 ---
 
+## O raciocínio que estamos treinando
+
+Isto vale mais que qualquer conceito da lista. Não é sobre Ruby — é sobre como se ataca um
+problema que você não sabe resolver.
+
+1. **Ler o erro literalmente.** A mensagem nomeia o que falta. `uninitialized constant Date`
+   é um `require` faltando, não um bug de lógica. Antes de teorizar, leia o que está escrito.
+2. **Muitas falhas com a mesma mensagem = uma causa.** 14 exemplos quebrados quase nunca são
+   14 bugs; são um só, antes de todos.
+3. **O erro mudar já é progresso.** O sinal de que você avançou não é ficar verde — é a
+   mensagem passar a ser outra.
+4. **Atacar o mais fácil primeiro.** A ordem é por dependência, não pela posição no arquivo.
+   Um método que não precisa do conceito que te travou vem antes.
+5. **Isolar antes de escrever.** Dúvida pontual se testa sozinha no `irb`. Descobrir dentro
+   de um método que já tem outros dois problemas é debugar duas coisas ao mesmo tempo.
+
 ## O laço de cada unidade (1 sessão, 1–2h)
 
 1. **O problema**, dito como comportamento — nunca como tarefa.
