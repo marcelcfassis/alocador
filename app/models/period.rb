@@ -12,13 +12,13 @@ class Period
   end
 
   def days
+    return nil if @end_at.nil?
     (@end_at - @start_at) + 1
   end
 
   def overlaps?(other)
     return true if end_at.nil?
+    return end_at >= other.start_at if other.end_at.nil?
     end_at >= other.start_at && start_at <= other.end_at
   end
-
-
 end

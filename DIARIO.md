@@ -41,3 +41,20 @@ bater letra por letra; duas linhas soltas não se combinam, só a última vira o
 Achei dois bugs numa suíte verde: `days` e `overlaps?` estouram quando o fim é nulo (o
 segundo só quando é o **outro** período que não tem fim). Lição: verde não prova que o
 código está certo, prova que o que foi testado funciona.
+
+---
+
+## 2026-08-17 — nível 1, unidade 1 (bugs e covers?)
+
+Fiz: refiz o `covers?` do zero sem olhar — dessa vez resolvido, não visto. Corrigi os dois
+bugs do `days` e do `overlaps?` com `end_at` nulo. Escrevi os specs antes de corrigir o
+código. 16 exemplos verdes.
+Travei em: sintaxe do spec (`be.(nil)`, `eq.(nil)`) — confundi as formas. Subject errado no
+context do `#days` — usava o period com fim definido pra testar caso sem fim. Retornei
+`false` no `overlaps?` quando `other.end_at` era nulo sem pensar no caso em que ainda
+há sobreposição.
+Ficou devendo: unidade 2 (a definir).
+
+Percepção do dia: ainda escrevo sem pensar nos outros cenários — coloco o caminho feliz e
+esqueço o `nil`. Ler o spec em voz alta antes de rodar tem ajudado a enxergar o que está
+escrito de verdade.

@@ -75,6 +75,14 @@ RSpec.describe Period do
         expect(open_period.overlaps?(other)).to be(true)
       end
     end
+
+    context "when others has no end" do
+      it "it returns nil when other" do
+        other = described_class.new(Date.new(2030, 1, 1), nil)
+
+        expect(period.overlaps?(other)).to be(false)
+      end
+    end
   end
 
   describe "#days" do
@@ -84,6 +92,12 @@ RSpec.describe Period do
 
     it "counts a period of a single day as one day" do
       expect(described_class.new(Date.new(2026, 3, 1), Date.new(2026, 3, 1)).days).to eq(1)
+    end
+    context "when period has no end" do
+        open_period = described_class.new(Date.new(2026, 3, 1), nil)
+      it "returns nil if end date is nil" do
+        expect(open_period.days).to eq(nil)
+      end
     end
   end
 end
