@@ -20,9 +20,9 @@ consultar. Isso não é retrocesso — é o checklist funcionando.
 ## Nível 1 — Orientação a objetos na prática
 
 - [x] escrever uma classe Ruby pura: estado no `initialize`, comportamento em métodos
-- [ ] decidir o que é público e o que é privado — e defender a escolha
-- [ ] módulo como **namespace**
-- [ ] módulo como **mixin** (`include`) e a diferença pra `extend`
+- [x] decidir o que é público e o que é privado — e defender a escolha
+- [x] módulo como **namespace**
+- [x] módulo como **mixin** (`include`) e a diferença pra `extend`
 - [ ] herança: quando ela é honesta ("é um") e quando mente
 - [ ] composição: substituir uma herança por composição e explicar o ganho
 - [ ] duck typing: dois objetos diferentes atendendo à mesma chamada

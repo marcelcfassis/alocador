@@ -58,3 +58,15 @@ Ficou devendo: unidade 2 (a definir).
 Percepção do dia: ainda escrevo sem pensar nos outros cenários — coloco o caminho feliz e
 esqueço o `nil`. Ler o spec em voz alta antes de rodar tem ajudado a enxergar o que está
 escrito de verdade.
+
+---
+
+## 2026-08-17 — nível 1, unidades 2, 3 e 4
+
+Fiz: público vs privado no irb com `Rectangle` e `valid_dimensions?` — entendeu que `private`
+esconde comportamento interno, não é punição. Namespace com dois módulos `Allocation` e
+`Financial` cada um com `Report`. Mixin com `Nameable` em `Person` e `Client` — percebeu
+sozinho que é a origem dos Concerns do Rails. Acertou de primeira a diferença entre
+`include` (instância) e `extend` (classe) sem consultar.
+Travei em: `unless` vs `if` — inverteu a lógica na primeira tentativa.
+Ficou devendo: testar `extend` na prática (ficou pra próxima sessão).
