@@ -70,3 +70,46 @@ sozinho que é a origem dos Concerns do Rails. Acertou de primeira a diferença 
 `include` (instância) e `extend` (classe) sem consultar.
 Travei em: `unless` vs `if` — inverteu a lógica na primeira tentativa.
 Ficou devendo: testar `extend` na prática (ficou pra próxima sessão).
+
+---
+
+## 2026-08-17 — nível 1, herança
+
+Fiz: `Rectangle`/`Square` no irb — provou na prática que `Square < Rectangle` mente
+(mudar `width` não ajusta `height`, quadrado "quebra"). Depois `ColoredRectangle < Rectangle`
+como contraponto honesto, usando `super` pra reaproveitar o `initialize` do pai.
+Aplicou o teste sozinho num caso novo: `FixedPeriod < Period` proibindo `end_at` nil —
+reconheceu que mente, porque aperta uma regra que o pai permite (contrato quebrado pra
+quem confia no `Period` genérico).
+Travei em: `Square.new(4,5)` sem `initialize` definido no `Rectangle` — `BasicObject#initialize`
+não aceita argumentos; `attr_accessor` só cria os métodos, não preenche valor inicial.
+Ficou devendo: testar `extend` na prática (ainda pendente). Composição é o próximo item.
+
+---
+
+## 2026-08-17 — nível 1, extend na prática (pendência fechada)
+
+Fiz: `Robot`/`Team` no irb — `include Greetable` deu método de instância (`Robot.new.hello`
+funcionou, `Robot.hello` não); `extend Greetable` deu método de classe (`Team.hello`
+funcionou, `Team.new.hello` não). Depois aplicou no domínio: `PeriodFactories` com
+`current_month`/`open_ended` via `extend` em `Period`, testou `Period.current_month` e
+funcionou.
+Percepção do dia (dita pelo próprio): "ficou meio abstrato, mas com prática fixa o
+aprendizado" — regra guardada: `include` quando o método usa dados de UMA instância
+(`self` com estado preenchido); `extend` quando o método é fábrica/utilitário e não
+depende de nenhum objeto já existente.
+Ficou devendo: nada pendente do mixin. Próximo: composição.
+
+---
+
+## 2026-08-17 — nível 1, composição
+
+Fiz: reescreveu `FixedPeriod` trocando herança (`< Period`, que mentia) por composição
+(`@period = Period.new(...)`), delegando `covers?` e `days`. Testou os dois casos: `nil`
+levanta `ArgumentError`, e a delegação funciona pro `Period` interno.
+Perguntou sozinho um ponto avançado: "se o Period mudar, não escala pra quem usa?" —
+resposta: sim, acoplamento não desaparece, mas fica restrito à interface pública que
+você chama, em vez de herdar o objeto inteiro (fragile base class problem evitado).
+Explicou o ganho com as próprias palavras: composição deixa escolher o que expor, então
+nunca promete o que não pode cumprir — ao contrário da herança que mente e exige remendo.
+Ficou devendo: nada. Próximo: duck typing.
