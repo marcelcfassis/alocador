@@ -151,3 +151,11 @@ guiados por pergunta, não por resposta pronta. Soube explicar de volta o porqu�
 Ficou devendo: a PROVA continua em aberto — essa tentativa (`Money`) não conta, teve ajuda
 demais no meio. **Repetir do zero, numa sessão nova, sem chamar no meio**, é o que falta
 pra fechar o nível 1.
+
+Depois da sessão, conversa sobre ritmo: preocupação de que nível 1 (100% Ruby puro) tá
+distante do que interessa (Rails, pra virar Pleno) — motivo real: **pressão de trabalho**
+("se eu não dominar isso, posso ser mandado embora"). Decisão: **adiar a PROVA do nível 1**
+e seguir pro nível 2 amanhã, mesma metodologia, mas nível 2 em diante usa sempre o domínio
+do projeto (`Client`/`Person`/`Team`/`Allocation`/`Payment`), nunca exemplo abstrato —
+registrado no `PLANO.md`. Risco assumido conscientemente, não ignorado: nível 1 ficou sem
+fechar limpo (duck typing ok, PROVA pendente).

@@ -28,6 +28,9 @@ fechados. A unidade 1 fechou limpa em 17/08.
 - [x] composição: substituir uma herança por composição e explicar o ganho
 - [x] duck typing: dois objetos diferentes atendendo à mesma chamada
 - [ ] **PROVA:** escrever uma classe nova do zero, com testes, sem perguntar e sem consultar
+      — **adiada em 18/08 por decisão consciente** (pressão real de trabalho, precisa
+      mostrar Rails rápido). Não é precedente pra pular PROVA de novo sem motivo do mesmo
+      peso — ver `DIARIO.md` de 18/08.
 
 **Unidades:**
 - [x] 1 — objeto de valor: período com início, fim e as três perguntas (17/08, 16 exemplos verdes)
