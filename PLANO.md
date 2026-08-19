@@ -121,6 +121,12 @@ composição: quando cada uma, e por que composição costuma ganhar. Duck typin
 classe tem pra mudar?) e **DIP** (dependa da abstração, não do concreto — é o que torna teste
 possível). Os outros três: reconhecer quando alguém citar.
 
+**A partir daqui, exemplo é sempre do domínio do projeto** (`Client`, `Person`, `Team`,
+`Allocation`, `Payment`), nunca abstrato tipo `Rectangle`/`Cachorro`. Decisão de 18/08: o
+foco é ficar Pleno em Rails — Ruby puro serve de base, não é o objetivo em si. Nível 1
+(OO em Ruby puro) foi necessário porque os projetos anteriores falharam por falta dele; a
+partir do nível 2, quanto mais cedo o exercício parecer código Rails de verdade, melhor.
+
 **3. MVC e responsabilidade de cada camada** — O ciclo do request de ponta a ponta. O que é
 responsabilidade de model, controller e view — e principalmente **o que não é de nenhum dos
 três**. Rotas, strong params, fat model/skinny controller e o limite disso.
