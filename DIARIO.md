@@ -159,3 +159,28 @@ e seguir pro nível 2 amanhã, mesma metodologia, mas nível 2 em diante usa sem
 do projeto (`Client`/`Person`/`Team`/`Allocation`/`Payment`), nunca exemplo abstrato —
 registrado no `PLANO.md`. Risco assumido conscientemente, não ignorado: nível 1 ficou sem
 fechar limpo (duck typing ok, PROVA pendente).
+
+---
+
+## 2026-08-19 — nível 2, SRP e DIP (exemplos do domínio real, como combinado)
+
+Fiz: `AllocationCalculator` + `AllocationInvoice` a partir de uma classe só (`AllocationInvoice`
+fazia cálculo e formatação juntos). Reconheceu sozinho os dois motivos de mudança (fórmula
+de cobrança vs. formato do texto) antes de eu nomear SRP. Separou em duas classes por
+composição, spec vermelho virou verde.
+Depois, DIP: trocou `AllocationInvoice` de **criar** `AllocationCalculator` internamente pra
+**receber pronto** via `calculator:` no `initialize`. Provou sozinho a hipótese ("é
+implementação às cegas, contando que quem for usar vai instanciar do jeito certo") quebrando
+de propósito com `calculator: "string qualquer"` no console e lendo o `NoMethodError` até a
+linha exata.
+Travei em: dois erros de digitação (`calulator` sem o segundo `c`) resolvidos lendo a
+mensagem literal. Confundiu `@calculator` (ivar) com `calculator` (método do `attr_reader`)
+na mesma linha — achou que o segundo "vazava" do `initialize`, quando na verdade era o
+método criado pelo `attr_reader`. A dúvida de fundo — "quem garante que o objeto passado
+tem os métodos certos?" — só resolveu depois de ver ao vivo o `NoMethodError` estourando;
+explicação em texto não bastou, precisou quebrar de propósito pra clicar.
+Percepção do dia: pediu documentado "esquece os testes" — queria entender o mecanismo em
+si, não só ver o spec passar. Foi a pergunta certa: RSpec só é "mais um chamador", não é
+onde a injeção de dependência nasce.
+Ficou devendo: reconhecer OCP/LSP/ISP (sem exercício, só reconhecimento) e a PROVA do
+nível 2 (refatorar código seu justificando pelo princípio).

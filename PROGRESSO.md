@@ -6,8 +6,10 @@ diferentes, e só a primeira conta.
 Um conceito volta pra `[ ]` sem culpa se, semanas depois, você não conseguir usar sem
 consultar. Isso não é retrocesso — é o checklist funcionando.
 
-**Onde estou:** nível 1 só falta a PROVA final. Herança, composição, extend e duck typing
-fechados. A unidade 1 fechou limpa em 17/08.
+**Onde estou:** nível 1 com PROVA adiada (18/08, decisão consciente por pressão de trabalho).
+Nível 2: SRP e DIP fechados na prática em 19/08, exemplos já no domínio real
+(`AllocationCalculator`/`AllocationInvoice`). Falta reconhecer OCP/LSP/ISP e a PROVA do
+nível 2.
 
 ---
 
@@ -38,10 +40,10 @@ fechados. A unidade 1 fechou limpa em 17/08.
 
 ## Nível 2 — SOLID, o básico
 
-- [ ] SRP: apontar numa classe sua quantos motivos ela tem pra mudar
-- [ ] quebrar uma classe que faz duas coisas em duas
-- [ ] DIP: injetar uma dependência em vez de instanciar dentro
-- [ ] explicar por que DIP é o que torna o teste possível
+- [x] SRP: apontar numa classe sua quantos motivos ela tem pra mudar
+- [x] quebrar uma classe que faz duas coisas em duas
+- [x] DIP: injetar uma dependência em vez de instanciar dentro
+- [x] explicar por que DIP é o que torna o teste possível
 - [ ] reconhecer OCP, LSP e ISP quando alguém citar
 - [ ] **PROVA:** refatorar código seu justificando pelo princípio
 
