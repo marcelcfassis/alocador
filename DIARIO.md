@@ -113,3 +113,41 @@ você chama, em vez de herdar o objeto inteiro (fragile base class problem evita
 Explicou o ganho com as próprias palavras: composição deixa escolher o que expor, então
 nunca promete o que não pode cumprir — ao contrário da herança que mente e exige remendo.
 Ficou devendo: nada. Próximo: duck typing.
+
+---
+
+## 2026-08-18 — nível 1, duck typing (fecha o nível, falta só a PROVA)
+
+Fiz: `SingleDay` do zero, sem parentesco com `Period`, respondendo ao mesmo `covers?(data)`.
+Spec vermelho veio pronto (incluindo um caso provando duck typing: `[period, single_day].select
+{ |p| p.covers?(hoje) }` funcionando sem checar classe). Escreveu a classe sozinho e foi verde
+de primeira. Corrigiu na revisão: `attr_accessor` → `attr_reader` (ninguém de fora deveria
+reescrever `date`) e `===` → `==` (usou `===` sem saber a diferença — funcionou por acidente
+porque `Date` não redefine `===`, mas o idiomático é `==`; `===` é o que o `case/when` chama
+por baixo).
+Travei em: banco de teste nunca tinha sido criado (só o de dev existia) — `RAILS_ENV=test
+bin/rails db:create` resolveu. Não sabia diferença entre `==` e `===`.
+Ficou devendo: nada do nível 1 conceitual. Falta só a **PROVA**: classe nova, com testes,
+sem ajuda.
+
+---
+
+## 2026-08-18 — nível 1, tentativa de PROVA (Money) — vista, não resolvida
+
+Fiz: tentou a PROVA sozinho com `Money` (soma, comparação, precisão decimal) e travou
+montando o spec — pediu ajuda linha a linha, então **não conta como PROVA limpa**, virou
+revisão guiada. Mesmo assim achou e corrigiu bugs reais sozinho a cada rodada: `soma`
+somando `Float` com objeto `Money` inteiro (faltava chamar `.money`); `soma` devolvendo
+número cru em vez de `Money` novo; `isGreater?` → `greater_than?` (nome estilo Java pro
+idiomático Ruby); reconheceu sozinho o padrão "`to_d`/`.present?` não é Ruby puro, precisa
+de `require`" de uma sessão anterior.
+Travei em: `subject` duplicado no spec (devia ser `let`); comparar `Money` com `Float` direto
+no `expect`; `to_d` sem `require "bigdecimal/util"`; `be` vs `eq` de novo (mesmo erro do
+`SingleDay`, não fixou ainda); `BigDecimal(valor, 2)` — achou que `2` era "casas decimais",
+é "dígitos significativos", ficou travado nisso no fim da sessão.
+Fechou verde ainda na mesma sessão: trocou `be`→`eq` e `BigDecimal(x, 2)`→`x.to_d`, os dois
+guiados por pergunta, não por resposta pronta. Soube explicar de volta o porquê dos dois
+(`eq` compara valor, `be` compara identidade; `to_d` evita ter que adivinhar dígitos).
+Ficou devendo: a PROVA continua em aberto — essa tentativa (`Money`) não conta, teve ajuda
+demais no meio. **Repetir do zero, numa sessão nova, sem chamar no meio**, é o que falta
+pra fechar o nível 1.

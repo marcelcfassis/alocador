@@ -6,8 +6,8 @@ diferentes, e só a primeira conta.
 Um conceito volta pra `[ ]` sem culpa se, semanas depois, você não conseguir usar sem
 consultar. Isso não é retrocesso — é o checklist funcionando.
 
-**Onde estou:** nível 1 quase fechado — falta duck typing e a PROVA final. Herança,
-composição e extend na prática fechados em 17/08. A unidade 1 fechou limpa em 17/08.
+**Onde estou:** nível 1 só falta a PROVA final. Herança, composição, extend e duck typing
+fechados. A unidade 1 fechou limpa em 17/08.
 
 ---
 
@@ -26,7 +26,7 @@ composição e extend na prática fechados em 17/08. A unidade 1 fechou limpa em
 - [x] módulo como **mixin** (`include`) e a diferença pra `extend`
 - [x] herança: quando ela é honesta ("é um") e quando mente
 - [x] composição: substituir uma herança por composição e explicar o ganho
-- [ ] duck typing: dois objetos diferentes atendendo à mesma chamada
+- [x] duck typing: dois objetos diferentes atendendo à mesma chamada
 - [ ] **PROVA:** escrever uma classe nova do zero, com testes, sem perguntar e sem consultar
 
 **Unidades:**
