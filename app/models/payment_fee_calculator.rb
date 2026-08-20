@@ -1,23 +1,5 @@
-class PaymentFeeCalculator
-  attr_reader :amount
-  def initialize(payment_method:, amount:)
-    @payment_method = payment_method
-    @amount = amount
-  end
-
-  def fee
-    if @payment_method == "pix"
-      PixFeeCalculator.new().calculate
-    elsif @payment_method == "boleto"
-      BoletoFeeCalculator.new.calculate(amount)
-    elsif @payment_method == "card"
-      CardFeeCalculator.new.calculate(amount)
-    end
-  end
-end
-
 class PixFeeCalculator
-  def calculate
+  def calculate(amount)
     0
   end
 end
@@ -31,5 +13,25 @@ end
 class CardFeeCalculator
   def calculate(amount)
     amount * 0.04 + 0.5
+  end
+end
+
+class PaymentFeeCalculator
+  attr_reader :amount, :payment_method
+
+  def initialize(payment_method:, amount:)
+    @payment_method = payment_method
+    @amount = amount
+  end
+
+  PAYMENT_METHODS = {
+    "pix" => PixFeeCalculator,
+    "boleto" => BoletoFeeCalculator,
+    "card" => CardFeeCalculator
+  }.freeze
+
+  def fee
+    strategy_class = PAYMENT_METHODS.fetch(payment_method)
+    strategy_class.new.calculate(amount)
   end
 end

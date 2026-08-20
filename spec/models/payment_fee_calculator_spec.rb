@@ -19,5 +19,11 @@ RSpec.describe PaymentFeeCalculator do
 
       expect(calculator.fee).to eq(4.5)
     end
+
+    it "pagamento nao existe" do
+      calculator = PaymentFeeCalculator.new(payment_method: "pix-card", amount: 100)
+
+      expect { calculator.fee }.to raise_error(KeyError)
+    end
   end
 end

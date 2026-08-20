@@ -207,3 +207,27 @@ de sintaxe" continua sendo onde trava — não é o conceito de OCP que faltou, 
 `def`/`end`/`.new` que ainda não saem automáticos.
 Ficou devendo: PROVA do nível 2 continua aberta — segunda tentativa também virou revisão.
 Repetir sozinho, sessão nova, sem chamar no meio.
+
+---
+
+## 2026-08-20 — nível 2, PROVA fechada na 3ª tentativa
+
+Fiz: reabri o `PaymentFeeCalculator` como 3ª tentativa da PROVA, regra clara — sozinho,
+sem chamar no meio. Trocou o `if/elsif` de despacho por um hash `PAYMENT_METHODS` (string
+do método de pagamento → classe calculadora) e `fee` virou um `fetch` + `.new.calculate`.
+Pesquisou sintaxe por fora (assumiu isso abertamente), mas a decisão de design foi dele:
+justificou OCP certo — `fee` não muda quando aparece um método de pagamento novo, só o
+hash ganha uma entrada.
+Sem eu apontar, reconheceu sozinho que faltava testar o `fetch` com default: escreveu um
+teste ruim primeiro (`expect(...).to be(true)`), viu pelo "got" do erro que `fee`
+devolvia `0` silenciosamente pra um método de pagamento inexistente — typo virando
+"taxa grátis" sem aviso. Decidiu trocar pro `fetch` sem default (deixa o `KeyError` nativo
+estourar) e provou com `expect { }.to raise_error(KeyError)`. 4 examples, 0 failures.
+Travei em: nada de errado registrado — sessão limpa, sem bug mecânico travando o fluxo
+dessa vez.
+Percepção do dia: a diferença que fechou a PROVA foi separar "pesquisar como fazer"
+(sintaxe, aceitável) de "pesquisar o que fazer" (decisão de design, que precisa ser
+dele). Ele mesmo levantou a dúvida ("tem problema pesquisar?") — sinal de que já sabe
+onde fica a linha.
+Ficou devendo: nível 2 fechado. Próximo é nível 3 (MVC): ciclo do request, rotas,
+strong params, o que não pode estar em controller/view.

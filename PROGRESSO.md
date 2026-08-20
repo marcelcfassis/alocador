@@ -7,9 +7,9 @@ Um conceito volta pra `[ ]` sem culpa se, semanas depois, você não conseguir u
 consultar. Isso não é retrocesso — é o checklist funcionando.
 
 **Onde estou:** nível 1 com PROVA adiada (18/08, decisão consciente por pressão de trabalho).
-Nível 2: SRP e DIP fechados na prática em 19/08, exemplos já no domínio real
-(`AllocationCalculator`/`AllocationInvoice`). Falta reconhecer OCP/LSP/ISP e a PROVA do
-nível 2.
+Nível 2 fechado em 20/08: SRP e DIP na prática (`AllocationCalculator`/`AllocationInvoice`),
+OCP/LSP/ISP reconhecidos, e a PROVA (`PaymentFeeCalculator`) passou na 3ª tentativa —
+sozinho, sem chamada no meio. Próximo: nível 3 (MVC).
 
 ---
 
@@ -45,10 +45,13 @@ nível 2.
 - [x] DIP: injetar uma dependência em vez de instanciar dentro
 - [x] explicar por que DIP é o que torna o teste possível
 - [x] reconhecer OCP, LSP e ISP quando alguém citar
-- [ ] **PROVA:** refatorar código seu justificando pelo princípio
-      — tentada em 19/08 (`PaymentFeeCalculator`), virou revisão guiada de novo (chamou
-      no meio). OCP identificado certo no fim, mas o `if/elsif` de dispatch ainda ficou —
-      só o cálculo saiu de dentro dele. Repetir sozinho numa sessão nova.
+- [x] **PROVA:** refatorar código seu justificando pelo princípio
+      — 3ª tentativa (20/08), `PaymentFeeCalculator`: `if/elsif` de dispatch virou hash
+      `PAYMENT_METHODS` (string → classe), `fee` virou lookup de uma linha. Sozinho, só
+      pesquisou sintaxe, sem pedir a decisão pronta. Justificou OCP certo: `fee` não muda
+      quando entra um método de pagamento novo, só o hash. Achou sozinho o fallback
+      silencioso do `fetch` com default (typo virava taxa zero sem erro), testou, e trocou
+      pro `fetch` sem default — `KeyError` explícito, provado com `raise_error`.
 
 ## Nível 3 — MVC e responsabilidade de cada camada
 
