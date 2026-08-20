@@ -184,3 +184,26 @@ si, não só ver o spec passar. Foi a pergunta certa: RSpec só é "mais um cham
 onde a injeção de dependência nasce.
 Ficou devendo: reconhecer OCP/LSP/ISP (sem exercício, só reconhecimento) e a PROVA do
 nível 2 (refatorar código seu justificando pelo princípio).
+
+---
+
+## 2026-08-19 (parte 2) — nível 2, reconhecimento OCP/LSP/ISP + tentativa de PROVA
+
+Fiz: reconheceu os três sem exercício — LSP ligando sozinho ao `FixedPeriod < Period` da
+semana passada ("herdou e mentiu"); OCP identificando que um `if/elsif` por tipo de
+contrato trava toda vez que aparece tipo novo; ISP reconhecendo mixin genérico demais
+forçando método que a classe não usa (e distinguiu de YAGNI: YAGNI é antes de existir,
+ISP é depois, quando gente diferente usa partes diferentes).
+Tentou a PROVA (`PaymentFeeCalculator`, se/elif por tipo de pagamento) sozinho, travou e
+pediu ajuda — virou revisão de novo, mesmo padrão de ontem. Foram uns 6-7 bugs mecânicos
+em sequência (classe sem `def`, erro de digitação em nome de classe, `end` faltando,
+chamar método de instância sem `.new`, `@amount` nunca inicializado) — cada um achado
+lendo o erro literal, não por explicação minha. No fim, disse certo que era OCP e o quê
+mudou (cálculo saiu do `if` pra classes). Ficou pendurado: o `if/elsif` de despacho ainda
+existe, só o cálculo saiu de dentro — OCP resolvido pela metade, registrado sem cobrar
+agora.
+Percepção do dia: a distância entre "entender o princípio" e "escrever a classe sem erro
+de sintaxe" continua sendo onde trava — não é o conceito de OCP que faltou, foi
+`def`/`end`/`.new` que ainda não saem automáticos.
+Ficou devendo: PROVA do nível 2 continua aberta — segunda tentativa também virou revisão.
+Repetir sozinho, sessão nova, sem chamar no meio.

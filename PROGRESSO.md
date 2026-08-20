@@ -44,8 +44,11 @@ nível 2.
 - [x] quebrar uma classe que faz duas coisas em duas
 - [x] DIP: injetar uma dependência em vez de instanciar dentro
 - [x] explicar por que DIP é o que torna o teste possível
-- [ ] reconhecer OCP, LSP e ISP quando alguém citar
+- [x] reconhecer OCP, LSP e ISP quando alguém citar
 - [ ] **PROVA:** refatorar código seu justificando pelo princípio
+      — tentada em 19/08 (`PaymentFeeCalculator`), virou revisão guiada de novo (chamou
+      no meio). OCP identificado certo no fim, mas o `if/elsif` de dispatch ainda ficou —
+      só o cálculo saiu de dentro dele. Repetir sozinho numa sessão nova.
 
 ## Nível 3 — MVC e responsabilidade de cada camada
 
